@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How one command took Facebook offline for six hours (October 2021, BGP explained)</title>
+<meta name="description" content="On 4 October 2021 a faulty maintenance command cut Facebook&#x27;s backbone; its DNS servers withdrew their BGP routes and Facebook, Instagram and WhatsApp vanished for nearly six hours. Step by step, from Meta&#x27;s post-mortem.">
+<link rel="canonical" href="https://seriouslyhowtv.github.io/facebook-outage-2021-bgp-explained/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How one command took Facebook offline for six hours (October 2021, BGP explained)">
+<meta property="og:description" content="On 4 October 2021 a faulty maintenance command cut Facebook&#x27;s backbone; its DNS servers withdrew their BGP routes and Facebook, Instagram and WhatsApp vanished for nearly six hours. Step by step, from Meta&#x27;s post-mortem.">
+<meta property="og:url" content="https://seriouslyhowtv.github.io/facebook-outage-2021-bgp-explained/">
+<meta property="og:image" content="https://seriouslyhowtv.github.io/static/og-internet24.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/static/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "How one command took Facebook offline for six hours (October 2021, BGP explained)", "description": "On 4 October 2021 a faulty maintenance command cut Facebook's backbone; its DNS servers withdrew their BGP routes and Facebook, Instagram and WhatsApp vanished for nearly six hours. Step by step, from Meta's post-mortem.", "datePublished": "2026-11-20", "dateModified": "2026-11-20", "author": {"@type": "Organization", "name": "Seriously, How?", "url": "https://www.youtube.com/@SeriouslyHowTV"}, "publisher": {"@type": "Organization", "name": "Seriously, How?", "logo": {"@type": "ImageObject", "url": "https://seriouslyhowtv.github.io/static/avatar.png"}}, "image": "https://seriouslyhowtv.github.io/static/og-internet24.jpg", "mainEntityOfPage": "https://seriouslyhowtv.github.io/facebook-outage-2021-bgp-explained/"}, {"@type": "VideoObject", "name": "The 6-Hour Outage Caused by One Command", "description": "How one faulty maintenance command withdrew Facebook's BGP routes in October 2021.", "thumbnailUrl": ["https://i.ytimg.com/vi/HdTgAnh9DNQ/hqdefault.jpg"], "uploadDate": "2026-11-19T15:00:00Z", "duration": "PT39S", "embedUrl": "https://www.youtube.com/embed/HdTgAnh9DNQ", "url": "https://www.youtube.com/watch?v=HdTgAnh9DNQ"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why did Facebook go down in October 2021?", "acceptedAnswer": {"@type": "Answer", "text": "During routine maintenance, a command meant to assess backbone capacity unintentionally disconnected Facebook's data centres. Its DNS servers then withdrew their BGP route announcements, so the rest of the internet could no longer find Facebook, Instagram or WhatsApp."}}, {"@type": "Question", "name": "How long was the 2021 Facebook outage?", "acceptedAnswer": {"@type": "Answer", "text": "Nearly six hours. Cloudflare observed Facebook's routes disappearing at about 15:40 UTC on 4 October 2021, with service returning after the routes were re-announced at about 21:00 UTC."}}, {"@type": "Question", "name": "Why couldn't engineers fix it remotely?", "acceptedAnswer": {"@type": "Answer", "text": "The tools they would normally use ran on the same network that had disappeared, so engineers had to be sent into the data centres, which are designed to be hard to get into."}}, {"@type": "Question", "name": "Was it a cyberattack?", "acceptedAnswer": {"@type": "Answer", "text": "No. Meta's post-mortem describes a configuration error during maintenance, not malicious activity."}}]}]}</script>
+</head>
+<body>
+<header class="top"><a class="brand" href="/"><img src="/static/avatar.png" alt="" width="32" height="32"> Seriously<span class="comma">,</span> <em>How?</em></a>
+<nav><a href="/#articles">Articles</a><a href="https://www.youtube.com/@SeriouslyHowTV?sub_confirmation=1" class="sub">Subscribe on YouTube</a></nav></header>
+<main>
+<p class="meta">Case study · Updated 20 November 2026 · Sources at the end</p>
+<h1>How one command took Facebook offline for six hours</h1>
+<p class="lede">On 4 October 2021, Facebook, Instagram and WhatsApp didn't crash. They disappeared from the internet's map. Here is the sequence, based on Meta's own engineering post-mortem.</p>
+<figure class="video"><button class="yt" data-id="HdTgAnh9DNQ" data-title="The 6-Hour Outage Caused by One Command" style="background-image:url(https://i.ytimg.com/vi/HdTgAnh9DNQ/hqdefault.jpg)" aria-label="Play: The 6-Hour Outage Caused by One Command"><span class="play"></span></button><figcaption><a href="https://www.youtube.com/watch?v=HdTgAnh9DNQ">Watch on YouTube: The 6-Hour Outage Caused by One Command</a></figcaption></figure>
+
+<h2>The setup</h2>
+<p>Facebook runs a private backbone network linking its data centres around the world. Its public-facing DNS servers (the ones that tell the internet where facebook.com is) were designed with a safety rule: if a DNS site can't reach the data centres, it should stop advertising itself on the internet, so traffic goes to healthier sites instead. That's normally sensible. On 4 October it became the trap.</p>
+
+<h2>Step 1: a routine command cuts the backbone</h2>
+<p>During routine maintenance, an engineer ran a command intended to assess the availability of global backbone capacity. It unintentionally took down all the connections in the backbone, disconnecting Facebook's data centres from each other and from the internet. A tool meant to audit such commands and stop dangerous ones didn't catch it.</p>
+
+<h2>Step 2: DNS servers withdraw their routes</h2>
+<p>The DNS servers saw that they could no longer reach the data centres and, following their safety rule, withdrew their <strong>BGP</strong> route announcements. (BGP is how networks tell each other what they can reach; see <a href="/how-the-internet-works-bgp-dns/">how the internet works</a>.) The rest of the internet now had no path to Facebook's name servers, so names like facebook.com, instagram.com and whatsapp.com stopped resolving. Cloudflare watched Facebook's routes vanish at about <strong>15:40 UTC</strong>.</p>
+
+<h2>Step 3: locked out of their own house</h2>
+<p>Engineers couldn't reach their systems remotely, because the tools they would normally use ran on the network that had just disappeared. Meta sent engineers onsite to the data centres, which are deliberately hard to get into and to modify, slowing the fix.</p>
+
+<h2>Step 4: switching it back on, carefully</h2>
+<p>Once the backbone was restored, routes were re-announced at about <strong>21:00 UTC</strong>, and services came back over the following minutes. Meta's engineers were cautious: individual data centres had dropped their power use by tens of megawatts, and in their words, "suddenly reversing such a dip in power consumption could put everything from electrical systems to caches at risk." They brought traffic back in stages.</p>
+
+<h2>What it teaches</h2>
+<ul>
+<li>A single network can vanish from the internet without any cable being cut: the map is made of announcements.</li>
+<li>Recovery tools need a way in that doesn't depend on the system they're meant to fix.</li>
+<li>Restarting can be as risky as failing; large systems come back in stages.</li>
+</ul>
+<p>Nine months later, a routing change inside Canada's Rogers took out service for more than 12 million customers for most of a day. What if every network did this at once? That's the thought experiment in our documentary: <a href="/internet-outage-24-hours/">what would happen if the internet went down for 24 hours</a>.</p>
+
+<h2>Sources</h2>
+<ul class="sources">
+<li>Meta Engineering, "More details about the October 4 outage" (5 Oct 2021). <a href="https://engineering.fb.com/2021/10/05/networking-traffic/outage-details/">engineering.fb.com</a></li>
+<li>Cloudflare, "Understanding how Facebook disappeared from the Internet" (4 Oct 2021). <a href="https://blog.cloudflare.com/october-2021-facebook-outage/">blog.cloudflare.com</a></li>
+<li>Rogers outage: <a href="https://crtc.gc.ca/eng/publications/reports/xona2024.htm">CRTC</a>.</li>
+</ul>
+<section class="faq"><h2>Frequently asked questions</h2><details><summary>Why did Facebook go down in October 2021?</summary><p>During routine maintenance, a command meant to assess backbone capacity unintentionally disconnected Facebook&#x27;s data centres. Its DNS servers then withdrew their BGP route announcements, so the rest of the internet could no longer find Facebook, Instagram or WhatsApp.</p></details><details><summary>How long was the 2021 Facebook outage?</summary><p>Nearly six hours. Cloudflare observed Facebook&#x27;s routes disappearing at about 15:40 UTC on 4 October 2021, with service returning after the routes were re-announced at about 21:00 UTC.</p></details><details><summary>Why couldn&#x27;t engineers fix it remotely?</summary><p>The tools they would normally use ran on the same network that had disappeared, so engineers had to be sent into the data centres, which are designed to be hard to get into.</p></details><details><summary>Was it a cyberattack?</summary><p>No. Meta&#x27;s post-mortem describes a configuration error during maintenance, not malicious activity.</p></details></section></main>
+<footer>
+<p><strong>Seriously, How?</strong> How the hidden systems of modern life actually work. Carefully sourced motion-graphics explainers. Narration is a synthetic voice; research and writing are human-checked.</p>
+<p><a href="https://www.youtube.com/@SeriouslyHowTV">YouTube</a> · <a href="https://www.instagram.com/seriouslyhowtv/">Instagram</a> · <a href="https://www.tiktok.com/@seriouslyhowtv">TikTok</a> · <a href="https://bsky.app/profile/seriouslyhowtv.bsky.social">Bluesky</a> · <a rel="me" href="https://mastodon.social/@SeriouslyHowTV">Mastodon</a></p>
+<p class="small">Imagery: NASA (public domain; no endorsement implied). No tracking, no ads on this site.</p>
+</footer>
+<script>
+document.querySelectorAll('.yt').forEach(function(el){el.addEventListener('click',function(){
+  var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+el.dataset.id+'?autoplay=1&rel=0';
+  f.title=el.dataset.title;f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;el.replaceWith(f);});});
+</script>
+</body>
+</html>

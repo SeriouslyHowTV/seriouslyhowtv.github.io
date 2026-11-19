@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://seriouslyhowtv.github.io/sitemap.xml

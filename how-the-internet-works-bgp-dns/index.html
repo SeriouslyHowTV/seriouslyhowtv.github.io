@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How does the internet actually work? 78,000 networks, BGP and DNS explained</title>
+<meta name="description" content="The internet is about 78,000 independent networks that agree to trust each other&#x27;s route announcements (BGP), plus a global phone book (DNS) and ~600 undersea cables. A plain-English, sourced explainer.">
+<link rel="canonical" href="https://seriouslyhowtv.github.io/how-the-internet-works-bgp-dns/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How does the internet actually work? 78,000 networks, BGP and DNS explained">
+<meta property="og:description" content="The internet is about 78,000 independent networks that agree to trust each other&#x27;s route announcements (BGP), plus a global phone book (DNS) and ~600 undersea cables. A plain-English, sourced explainer.">
+<meta property="og:url" content="https://seriouslyhowtv.github.io/how-the-internet-works-bgp-dns/">
+<meta property="og:image" content="https://seriouslyhowtv.github.io/static/og-internet24.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/static/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "How does the internet actually work? 78,000 networks, BGP and DNS explained", "description": "The internet is about 78,000 independent networks that agree to trust each other's route announcements (BGP), plus a global phone book (DNS) and ~600 undersea cables. A plain-English, sourced explainer.", "datePublished": "2026-11-20", "dateModified": "2026-11-20", "author": {"@type": "Organization", "name": "Seriously, How?", "url": "https://www.youtube.com/@SeriouslyHowTV"}, "publisher": {"@type": "Organization", "name": "Seriously, How?", "logo": {"@type": "ImageObject", "url": "https://seriouslyhowtv.github.io/static/avatar.png"}}, "image": "https://seriouslyhowtv.github.io/static/og-internet24.jpg", "mainEntityOfPage": "https://seriouslyhowtv.github.io/how-the-internet-works-bgp-dns/"}, {"@type": "VideoObject", "name": "Full Signal. Nothing Loads. Why?", "description": "The internet is ~78,000 networks that announce routes to each other. When they stop, signal doesn't matter.", "thumbnailUrl": ["https://i.ytimg.com/vi/xc8FxhdH4CY/hqdefault.jpg"], "uploadDate": "2026-11-19T15:00:00Z", "duration": "PT38S", "embedUrl": "https://www.youtube.com/embed/xc8FxhdH4CY", "url": "https://www.youtube.com/watch?v=xc8FxhdH4CY"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is BGP in simple terms?", "acceptedAnswer": {"@type": "Answer", "text": "BGP, the Border Gateway Protocol, is how the internet's networks tell each other which addresses they can deliver traffic to. Together those announcements form the internet's map of more than a million routes."}}, {"@type": "Question", "name": "What is an autonomous system?", "acceptedAnswer": {"@type": "Answer", "text": "An independently run network with its own number, such as an internet provider, a university, a cloud company or a mobile carrier. There are about 78,000 of them."}}, {"@type": "Question", "name": "What does DNS do?", "acceptedAnswer": {"@type": "Answer", "text": "The Domain Name System turns names people can read, like example.com, into the numeric addresses routers use. It is anchored by 13 root server identities run by 12 organisations and copied to more than 2,000 sites."}}, {"@type": "Question", "name": "How much internet traffic goes through undersea cables?", "acceptedAnswer": {"@type": "Answer", "text": "About 600 submarine fibre-optic cables carry more than 99% of international data between continents."}}]}]}</script>
+</head>
+<body>
+<header class="top"><a class="brand" href="/"><img src="/static/avatar.png" alt="" width="32" height="32"> Seriously<span class="comma">,</span> <em>How?</em></a>
+<nav><a href="/#articles">Articles</a><a href="https://www.youtube.com/@SeriouslyHowTV?sub_confirmation=1" class="sub">Subscribe on YouTube</a></nav></header>
+<main>
+<p class="meta">Explainer · Updated 20 November 2026 · Sources at the end</p>
+<h1>How does the internet actually work?</h1>
+<p class="lede">It isn't a cloud and it isn't one network. It's about 78,000 networks that agree, every second, to trust each other. Here is how that agreement works, in plain English.</p>
+<figure class="video"><button class="yt" data-id="xc8FxhdH4CY" data-title="Full Signal. Nothing Loads. Why?" style="background-image:url(https://i.ytimg.com/vi/xc8FxhdH4CY/hqdefault.jpg)" aria-label="Play: Full Signal. Nothing Loads. Why?"><span class="play"></span></button><figcaption><a href="https://www.youtube.com/watch?v=xc8FxhdH4CY">Watch on YouTube: Full Signal. Nothing Loads. Why?</a></figcaption></figure>
+
+<h2>1. The internet is a network of networks</h2>
+<p>Your home broadband, a mobile carrier, a university campus, a cloud giant's data centres: each is run independently, and each large one has its own identifying number. Engineers call these networks <strong>autonomous systems</strong>. In January 2026 there were about <strong>77,900</strong> of them visible on the global internet.</p>
+<p>No single company owns "the internet". What makes these separate networks behave like one is a shared language for telling each other where things are.</p>
+
+<h2>2. BGP: the networks announce what they can reach</h2>
+<p>That language is the <strong>Border Gateway Protocol (BGP)</strong>. Every network continuously tells its neighbours, in effect: <em>"send me traffic for these addresses, and I'll deliver it."</em> Neighbours pass those announcements on, choosing paths as they go. Combined, they form the internet's routing map: more than <strong>a million IPv4 routes</strong>, held by routers all over the world and updated constantly.</p>
+<p>The important word is <em>trust</em>. Networks largely accept each other's announcements. That makes the system resilient (if one path fails, another is announced and traffic flows around it within minutes) but also fragile: if a network withdraws its routes by mistake, it can vanish from the internet, as Facebook did in 2021 (<a href="/facebook-outage-2021-bgp-explained/">here's how</a>).</p>
+
+<h2>3. DNS: the internet's phone book</h2>
+<p>Routers work with numeric addresses, not names. The <strong>Domain Name System</strong> translates a name like <code>example.com</code> into an address. It is a hierarchy that starts at the root: <strong>13 root server identities</strong> (A to M), run by <strong>12 organisations</strong> and copied to more than <strong>2,000 sites</strong> worldwide, so a nearby copy can always answer.</p>
+<p>Your device and your provider cache answers for a while, which is why DNS feels instant. But a cached address is useless if there is no route to reach it: DNS and BGP need each other.</p>
+
+<h2>4. The physical layer: cables, light and data centres</h2>
+<p>All of this runs on hardware. Between continents, about <strong>600 undersea fibre-optic cables</strong> carry more than <strong>99%</strong> of international data, as pulses of light travelling through glass at roughly <strong>200,000 km per second</strong>, about two-thirds of the speed of light in a vacuum.</p>
+
+<h2>5. What happens when you open a page</h2>
+<ol>
+<li>Your device asks DNS for the site's address (often answered from a cache).</li>
+<li>Your request leaves your provider's network and hops from network to network along the BGP map, often across an ocean.</li>
+<li>The server answers, and the reply finds its way back the same way, usually in a fraction of a second.</li>
+</ol>
+
+<h2>Why it matters</h2>
+<p>Because the internet is an agreement rather than a single machine, there is no master off switch, and real failures stay local. But it also means a single mistaken announcement can make a huge service disappear for hours. Our documentary explores the extreme version of that question: <a href="/internet-outage-24-hours/">what would happen if the internet went down for 24 hours?</a></p>
+
+<h2>Sources</h2>
+<ul class="sources">
+<li>Autonomous systems and routes: APNIC, "BGP in 2025" (8 Jan 2026). <a href="https://blog.apnic.net/2026/01/08/bgp-in-2025/">blog.apnic.net</a></li>
+<li>Root servers: <a href="https://root-servers.org/">root-servers.org</a> (live instance count, 19 Nov 2026).</li>
+<li>DNS caching (TTL): <a href="https://www.rfc-editor.org/rfc/rfc1035.html">RFC 1035</a>.</li>
+<li>Submarine cables: <a href="https://resources.telegeography.com/how-many-submarine-cables-are-there-anyway">TeleGeography</a> (2026); <a href="https://www.itu.int/en/mediacentre/Pages/PR-2024-11-29-advisory-body-submarine-cable-resilience.aspx">ITU</a> (2024).</li>
+<li>Speed of light in fibre: <a href="https://resources.telegeography.com/the-speed-of-light-never-changes-except-when-it-does">TeleGeography</a>.</li>
+<li>BGP convergence: Labovitz et al., SIGCOMM 2000.</li>
+</ul>
+<section class="faq"><h2>Frequently asked questions</h2><details><summary>What is BGP in simple terms?</summary><p>BGP, the Border Gateway Protocol, is how the internet&#x27;s networks tell each other which addresses they can deliver traffic to. Together those announcements form the internet&#x27;s map of more than a million routes.</p></details><details><summary>What is an autonomous system?</summary><p>An independently run network with its own number, such as an internet provider, a university, a cloud company or a mobile carrier. There are about 78,000 of them.</p></details><details><summary>What does DNS do?</summary><p>The Domain Name System turns names people can read, like example.com, into the numeric addresses routers use. It is anchored by 13 root server identities run by 12 organisations and copied to more than 2,000 sites.</p></details><details><summary>How much internet traffic goes through undersea cables?</summary><p>About 600 submarine fibre-optic cables carry more than 99% of international data between continents.</p></details></section></main>
+<footer>
+<p><strong>Seriously, How?</strong> How the hidden systems of modern life actually work. Carefully sourced motion-graphics explainers. Narration is a synthetic voice; research and writing are human-checked.</p>
+<p><a href="https://www.youtube.com/@SeriouslyHowTV">YouTube</a> · <a href="https://www.instagram.com/seriouslyhowtv/">Instagram</a> · <a href="https://www.tiktok.com/@seriouslyhowtv">TikTok</a> · <a href="https://bsky.app/profile/seriouslyhowtv.bsky.social">Bluesky</a> · <a rel="me" href="https://mastodon.social/@SeriouslyHowTV">Mastodon</a></p>
+<p class="small">Imagery: NASA (public domain; no endorsement implied). No tracking, no ads on this site.</p>
+</footer>
+<script>
+document.querySelectorAll('.yt').forEach(function(el){el.addEventListener('click',function(){
+  var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+el.dataset.id+'?autoplay=1&rel=0';
+  f.title=el.dataset.title;f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;el.replaceWith(f);});});
+</script>
+</body>
+</html>
