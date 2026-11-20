@@ -17,6 +17,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/static/style.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "How does the internet actually work? 78,000 networks, BGP and DNS explained", "description": "The internet is about 78,000 independent networks that agree to trust each other's route announcements (BGP), plus a global phone book (DNS) and ~600 undersea cables. A plain-English, sourced explainer.", "datePublished": "2026-11-20", "dateModified": "2026-11-20", "author": {"@type": "Organization", "name": "Seriously, How?", "url": "https://www.youtube.com/@SeriouslyHowTV"}, "publisher": {"@type": "Organization", "name": "Seriously, How?", "logo": {"@type": "ImageObject", "url": "https://seriouslyhowtv.github.io/static/avatar.png"}}, "image": "https://seriouslyhowtv.github.io/static/og-internet24.jpg", "mainEntityOfPage": "https://seriouslyhowtv.github.io/how-the-internet-works-bgp-dns/"}, {"@type": "VideoObject", "name": "Full Signal. Nothing Loads. Why?", "description": "The internet is ~78,000 networks that announce routes to each other. When they stop, signal doesn't matter.", "thumbnailUrl": ["https://i.ytimg.com/vi/xc8FxhdH4CY/hqdefault.jpg"], "uploadDate": "2026-11-19T15:00:00Z", "duration": "PT38S", "embedUrl": "https://www.youtube.com/embed/xc8FxhdH4CY", "url": "https://www.youtube.com/watch?v=xc8FxhdH4CY"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is BGP in simple terms?", "acceptedAnswer": {"@type": "Answer", "text": "BGP, the Border Gateway Protocol, is how the internet's networks tell each other which addresses they can deliver traffic to. Together those announcements form the internet's map of more than a million routes."}}, {"@type": "Question", "name": "What is an autonomous system?", "acceptedAnswer": {"@type": "Answer", "text": "An independently run network with its own number, such as an internet provider, a university, a cloud company or a mobile carrier. There are about 78,000 of them."}}, {"@type": "Question", "name": "What does DNS do?", "acceptedAnswer": {"@type": "Answer", "text": "The Domain Name System turns names people can read, like example.com, into the numeric addresses routers use. It is anchored by 13 root server identities run by 12 organisations and copied to more than 2,000 sites."}}, {"@type": "Question", "name": "How much internet traffic goes through undersea cables?", "acceptedAnswer": {"@type": "Answer", "text": "About 600 submarine fibre-optic cables carry more than 99% of international data between continents."}}]}]}</script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
+try{if(localStorage.getItem('sh_consent')==='granted'){gtag('consent','update',{analytics_storage:'granted'});}}catch(e){}
+gtag('js',new Date());gtag('config','G-7S8MNK1HT8');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7S8MNK1HT8"></script>
 </head>
 <body>
 <header class="top"><a class="brand" href="/"><img src="/static/avatar.png" alt="" width="32" height="32"><span>Seriously<span class="comma">,</span> <em>How?</em></span></a>
@@ -65,12 +72,23 @@
 <footer>
 <p><strong>Seriously, How?</strong> How the hidden systems of modern life actually work. Carefully sourced motion-graphics explainers. Narration is a synthetic voice; research and writing are human-checked.</p>
 <p><a href="https://www.youtube.com/@SeriouslyHowTV">YouTube</a> · <a href="https://www.instagram.com/seriouslyhowtv/">Instagram</a> · <a href="https://www.tiktok.com/@seriouslyhowtv">TikTok</a> · <a href="https://bsky.app/profile/seriouslyhowtv.bsky.social">Bluesky</a> · <a rel="me" href="https://mastodon.social/@SeriouslyHowTV">Mastodon</a></p>
-<p class="small">Imagery: NASA (public domain; no endorsement implied). No tracking, no ads on this site.</p>
+<p class="small">Imagery: NASA (public domain; no endorsement implied). No ads. Analytics cookies only with your consent: <a href="/privacy/">Privacy</a> · <a href="#" id="cookie-settings">Cookie settings</a></p>
 </footer>
 <script>
 document.querySelectorAll('.yt').forEach(function(el){el.addEventListener('click',function(){
   var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+el.dataset.id+'?autoplay=1&rel=0';
   f.title=el.dataset.title;f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;el.replaceWith(f);});});
+</script>
+<div id="consent" class="consent" role="dialog" aria-label="Cookie consent" hidden>
+<p>We use Google Analytics to count visits and see which articles help. Analytics cookies are set only if you accept. <a href="/privacy/">Privacy</a></p>
+<div class="consent-actions"><button type="button" data-c="denied">Decline</button><button type="button" data-c="granted" class="primary">Accept</button></div>
+</div>
+<script>
+(function(){var b=document.getElementById('consent');var v=null;try{v=localStorage.getItem('sh_consent');}catch(e){}
+if(!v){b.hidden=false;}
+b.querySelectorAll('button').forEach(function(x){x.addEventListener('click',function(){var c=x.dataset.c;try{localStorage.setItem('sh_consent',c);}catch(e){}
+gtag('consent','update',{analytics_storage:c});b.hidden=true;});});
+var s=document.getElementById('cookie-settings');if(s){s.addEventListener('click',function(e){e.preventDefault();b.hidden=false;});}})();
 </script>
 </body>
 </html>

@@ -17,6 +17,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/static/style.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "How do you restart a dead power grid? Black start, explained with Spain's 2025 blackout", "description": "Most power stations need electricity to start. Here is how grid operators restart a country after a total blackout: black-start plants, cranking paths, load steps and islands, with the 28 April 2025 Iberian blackout as the case study.", "datePublished": "2026-11-20", "dateModified": "2026-11-20", "author": {"@type": "Organization", "name": "Seriously, How?", "url": "https://www.youtube.com/@SeriouslyHowTV"}, "publisher": {"@type": "Organization", "name": "Seriously, How?", "logo": {"@type": "ImageObject", "url": "https://seriouslyhowtv.github.io/static/avatar.png"}}, "image": "https://seriouslyhowtv.github.io/static/og-blackstart.jpg", "mainEntityOfPage": "https://seriouslyhowtv.github.io/restart-a-dead-power-grid/"}, {"@type": "VideoObject", "name": "How Do You Restart a Dead Power Grid? Spain's 2025 Blackout", "description": "How grid operators restart a country after a total blackout: black-start plants, cranking paths, load steps and islands, with the 28 April 2025 Iberian blackout.", "thumbnailUrl": ["https://i.ytimg.com/vi/2I3fvMVswFk/maxresdefault.jpg"], "uploadDate": "2026-11-20T15:00:00Z", "duration": "PT3M11S", "embedUrl": "https://www.youtube.com/embed/2I3fvMVswFk", "url": "https://www.youtube.com/watch?v=2I3fvMVswFk"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a black start?", "acceptedAnswer": {"@type": "Answer", "text": "A black start is restarting a power system after a total or partial shutdown without help from the external grid. It begins with special power stations, often hydro plants, that can start using only their own resources."}}, {"@type": "Question", "name": "Why can't a power station just restart itself?", "acceptedAnswer": {"@type": "Answer", "text": "Large thermal plants need electricity before they can generate any: pumps for cooling water, fans for the boilers, and the excitation current that magnetises the generator's rotor. These auxiliaries are normally fed from the grid."}}, {"@type": "Question", "name": "How long did it take to restore power in Spain after the April 2025 blackout?", "acceptedAnswer": {"@type": "Answer", "text": "About 18 hours. The collapse happened at 12:33 on Monday 28 April 2025, and 99.95% of Spain's demand had been restored by 07:00 the next morning. Portugal's transmission network was restored by 00:22."}}, {"@type": "Question", "name": "Was the Iberian blackout caused by a cyberattack?", "acceptedAnswer": {"@type": "Answer", "text": "No. The Spanish government's committee found no evidence of a cyberattack, and the ENTSO-E expert panel described many interacting factors, including voltage control problems, oscillations and a cascade of generators disconnecting under overvoltage."}}, {"@type": "Question", "name": "Why do engineers restart the grid in islands?", "acceptedAnswer": {"@type": "Answer", "text": "Small separate grids are easier to keep stable. Each island balances its own generation and load, and islands are joined only when their frequency, voltage and phase angle match, because connecting them out of step can damage equipment."}}]}]}</script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
+try{if(localStorage.getItem('sh_consent')==='granted'){gtag('consent','update',{analytics_storage:'granted'});}}catch(e){}
+gtag('js',new Date());gtag('config','G-7S8MNK1HT8');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7S8MNK1HT8"></script>
 </head>
 <body>
 <header class="top"><a class="brand" href="/"><img src="/static/avatar.png" alt="" width="32" height="32"><span>Seriously<span class="comma">,</span> <em>How?</em></span></a>
@@ -89,12 +96,23 @@
 <footer>
 <p><strong>Seriously, How?</strong> How the hidden systems of modern life actually work. Carefully sourced motion-graphics explainers. Narration is a synthetic voice; research and writing are human-checked.</p>
 <p><a href="https://www.youtube.com/@SeriouslyHowTV">YouTube</a> · <a href="https://www.instagram.com/seriouslyhowtv/">Instagram</a> · <a href="https://www.tiktok.com/@seriouslyhowtv">TikTok</a> · <a href="https://bsky.app/profile/seriouslyhowtv.bsky.social">Bluesky</a> · <a rel="me" href="https://mastodon.social/@SeriouslyHowTV">Mastodon</a></p>
-<p class="small">Imagery: NASA (public domain; no endorsement implied). No tracking, no ads on this site.</p>
+<p class="small">Imagery: NASA (public domain; no endorsement implied). No ads. Analytics cookies only with your consent: <a href="/privacy/">Privacy</a> · <a href="#" id="cookie-settings">Cookie settings</a></p>
 </footer>
 <script>
 document.querySelectorAll('.yt').forEach(function(el){el.addEventListener('click',function(){
   var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+el.dataset.id+'?autoplay=1&rel=0';
   f.title=el.dataset.title;f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;el.replaceWith(f);});});
+</script>
+<div id="consent" class="consent" role="dialog" aria-label="Cookie consent" hidden>
+<p>We use Google Analytics to count visits and see which articles help. Analytics cookies are set only if you accept. <a href="/privacy/">Privacy</a></p>
+<div class="consent-actions"><button type="button" data-c="denied">Decline</button><button type="button" data-c="granted" class="primary">Accept</button></div>
+</div>
+<script>
+(function(){var b=document.getElementById('consent');var v=null;try{v=localStorage.getItem('sh_consent');}catch(e){}
+if(!v){b.hidden=false;}
+b.querySelectorAll('button').forEach(function(x){x.addEventListener('click',function(){var c=x.dataset.c;try{localStorage.setItem('sh_consent',c);}catch(e){}
+gtag('consent','update',{analytics_storage:c});b.hidden=true;});});
+var s=document.getElementById('cookie-settings');if(s){s.addEventListener('click',function(e){e.preventDefault();b.hidden=false;});}})();
 </script>
 </body>
 </html>
