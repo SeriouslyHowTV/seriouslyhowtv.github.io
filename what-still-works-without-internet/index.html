@@ -86,7 +86,9 @@ document.querySelectorAll('.yt').forEach(function(el){el.addEventListener('click
 (function(){var b=document.getElementById('consent');var v=null;try{v=localStorage.getItem('sh_consent');}catch(e){}
 if(!v){b.hidden=false;}
 b.querySelectorAll('button').forEach(function(x){x.addEventListener('click',function(){var c=x.dataset.c;try{localStorage.setItem('sh_consent',c);}catch(e){}
-gtag('consent','update',{analytics_storage:c});b.hidden=true;});});
+gtag('consent','update',{analytics_storage:c});
+if(c==='granted'&&v!=='granted'){gtag('event','page_view',{page_location:location.href,page_title:document.title});}
+v=c;b.hidden=true;});});
 var s=document.getElementById('cookie-settings');if(s){s.addEventListener('click',function(e){e.preventDefault();b.hidden=false;});}})();
 </script>
 </body>
