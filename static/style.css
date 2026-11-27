@@ -46,3 +46,4 @@ footer{border-top:1px solid var(--line);padding:22px 18px;max-width:760px;margin
 .consent-actions{display:flex;gap:8px;justify-content:flex-end}
 .consent button{font:inherit;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;color:inherit;cursor:pointer}
 .consent button.primary{background:#f5a541;color:#1b1205;border-color:#f5a541;font-weight:700}
+h1 em{display:block;font-size:.6em;line-height:1.2;color:var(--muted);margin-top:.25em}
